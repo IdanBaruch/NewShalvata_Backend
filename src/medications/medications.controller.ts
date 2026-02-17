@@ -12,6 +12,7 @@ import {
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiTags, ApiOperation, ApiBearerAuth, ApiConsumes, ApiBody } from '@nestjs/swagger';
+import type { Multer } from 'multer';
 import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
 import { MedicationsService } from './medications.service';
 import { CreateMedicationDto, VerifyIntakeDto } from './dto/medication.dto';

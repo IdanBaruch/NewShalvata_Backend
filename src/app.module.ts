@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, Controller, Get } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ScheduleModule } from '@nestjs/schedule';
@@ -7,6 +7,19 @@ import { UsersModule } from './users/users.module';
 import { MedicationsModule } from './medications/medications.module';
 import { MoodModule } from './mood/mood.module';
 import { ClinicianModule } from './clinician/clinician.module';
+
+// Health Check Controller
+@Controller()
+class AppController {
+  @Get('health')
+  health() {
+    return {
+      status: 'healthy',
+      service: 'protocol66-api',
+      timestamp: new Date().toISOString(),
+    };
+  }
+}
 
 @Module({
   imports: [
@@ -46,18 +59,3 @@ import { ClinicianModule } from './clinician/clinician.module';
   controllers: [AppController],
 })
 export class AppModule {}
-
-// Health Check Controller
-import { Controller, Get } from '@nestjs/common';
-
-@Controller()
-class AppController {
-  @Get('health')
-  health() {
-    return {
-      status: 'healthy',
-      service: 'protocol66-api',
-      timestamp: new Date().toISOString(),
-    };
-  }
-}

@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString, IsEnum, IsArray, IsOptional, IsDateString, IsUUID } from 'class-validator';
-import { MedicationFrequency } from './medication.entity';
+import { MedicationFrequency } from '../medication.entity';
 
 export class CreateMedicationDto {
   @ApiProperty({ example: 'Lithium' })
